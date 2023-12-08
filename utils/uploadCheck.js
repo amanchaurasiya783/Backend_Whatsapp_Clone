@@ -1,12 +1,13 @@
 const multer = require('multer');
 const { GridFsStorage } = require('multer-gridfs-storage');
+const dotenv = require('dotenv').config();
 
-const url = 'mongodb://localhost:27017/whatsapp-clone';
+const URL = process.env.URL;
 
 
 // Create a storage object with a given configuration
 const storage = new GridFsStorage({
-    url: url,
+    url: URL,
     options: { useUnifiedTopology: true, useNewUrlParser: true },
     file: (req, file) => {
 
